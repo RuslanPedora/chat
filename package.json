@@ -1,0 +1,23 @@
+{
+  "name": "socket-chat",
+  "version": "1.0.0",
+  "description": "Socket.io based chat app",
+  "main": "http-server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Socket",
+    "Node",
+    "JS",
+    "Express"
+  ],
+  "author": "Ruslan Pedora",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "socket.io": "^2.0.3"
+  }
+}

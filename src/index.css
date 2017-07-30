@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+}
+div {
+    border: 1px solid blue;
+}
+.cross {
+    float: right;
+    font-weight: bold;
+    background-color: red;
+}
+.clickable {
+    cursor: pointer;
+}
+.left-float {
+    float: left;
+}
+.rirght-float {
+    float: right;
+}
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#main-container {
+    display: flex;
+    height: 70vh;    
+}
+#dialogs {
+    overflow: auto;
+    width: 100px;
+    height: 100%;
+    background-color: grey;
+}
+#collocutors {
+    list-style: none;
+    padding: 0;
+}
+#collocutors li:hover {
+    cursor: pointer;
+}    
+#collocutors li span:hover {
+    cursor: pointer;
+}    
+#tracker {
+    border: 1px solid black;
+    height: 100%;
+    width: calc( 100% - 200px );    
+    background-color: cyan;
+    overflow: auto;
+}
+#online-box {
+    overflow: auto;
+    width: 100px;
+    height: 100%;
+    background: yellow;
+}
+#online-users {
+    list-style: none;
+    padding: 0;
+}
+#online-users li {
+    cursor: pointer;    
+}
+#online-users li:hover {
+    background-color: green;
+}    
+#typing-detector {
+    height: 30px;
+}
+#message-bar {
+    border: 1px solid black;
+}
