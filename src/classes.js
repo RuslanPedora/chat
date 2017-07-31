@@ -1,8 +1,8 @@
 'use strict';
 class OnlineUser {
-    constructor( nickName, socket ) {
+    constructor( nickname, socket ) {
         this.socket = socket;
-        this.nickName = nickName;
+        this.nickname = '' + nickname;
     }
 }
 //--------------------------------------------------------------------------------
@@ -11,20 +11,20 @@ class OnlineUserList {
         this.userList = [];
     }
     //--------------------------------------------------------------------------------
-    isFreeNickName( nickName ) {
-        return !Boolean( this.userList.find( el => el.nickName === nickName ) );
+    isUserOnline( nickname ) {
+        return Boolean( this.userList.find( el => el.nickname.toLowerCase() === ( '' + nickname ).toLowerCase() ) );
     }
     //--------------------------------------------------------------------------------
     connectUser( user ) {
         this.userList.push( user );
     }
     //--------------------------------------------------------------------------------
-    disconnectUser( nickName ) {
-        this.userList = this.userList.filter( el => el.nickName !== nickName );
+    disconnectUser( nickname ) {
+        this.userList = this.userList.filter( el => el.nickname.toLowerCase() !== ( '' + nickname ).toLowerCase() );
     }
     //--------------------------------------------------------------------------------
-    getUser( nickName ) {
-        let user = this.userList.find( el => el.nickName === nickName );
+    getUser( nickname ) {
+        let user = this.userList.find( el => el.nickname.toLowerCase() === ( '' + nickname ).toLowerCase() );
 
         return user ? user : false;
     }
@@ -35,8 +35,8 @@ class OnlineUserList {
         return user ? user : false;
     }
     //--------------------------------------------------------------------------------
-    getNickNames() {
-        return this.userList.map( el => el.nickName );
+    getnicknames() {
+        return this.userList.map( el => el.nickname );
     }
 }
 //--------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ class Message {
     constructor ( sender, message ) {
         this.sender = sender;
         this.message = message;
-        this.time = new Date;
+        this.time = formatDate( new Date );
     }
 }
 //--------------------------------------------------------------------------------
@@ -54,6 +54,10 @@ class PrivateMessage extends Message {
         this.receiver = receiver;
         this.failed = failed;
     }
+}
+//--------------------------------------------------------------------------------
+function formatDate( date ) {
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
 //--------------------------------------------------------------------------------
 module.exports = {

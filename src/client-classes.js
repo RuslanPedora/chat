@@ -4,7 +4,7 @@ class Message {
     constructor ( sender, message ) {
         this.sender = sender;
         this.message = message;
-        this.time = new Date;
+        this.time = formatDate( new Date() );
     }
 }
 //--------------------------------------------------------------------------------
@@ -20,6 +20,19 @@ class Dialog {
     constructor( collocutor ) {
         this.collocutor = collocutor;
         this.messages = [];
+        this.notRead = false;
+    }
+    //--------------------------------------------------------------------------------
+    setUnread() {
+        this.notRead = true;
+    }
+    //--------------------------------------------------------------------------------
+    setRead() {
+        this.notRead = false;
+    }    
+    //--------------------------------------------------------------------------------
+    isRead() {
+        return !this.notRead;
     }
     //--------------------------------------------------------------------------------
     getMessages() {
@@ -71,4 +84,8 @@ class DialogContainer {
         
         return dialog ? dialog : [];
     }
+}
+//--------------------------------------------------------------------------------
+function formatDate( date ) {
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }

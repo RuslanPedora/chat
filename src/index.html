@@ -1,18 +1,29 @@
 <!doctype html>
 <html>
 <head>
+    <base href='/'>
     <link rel='stylesheet' href='src/index.css'>    
+    <link rel="shortcut icon" type="image/x-icon" href='images/logo.jpg'>
     <meta charset="UTF-8">    
     <meta name="author" content="Ruslan Pedora">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 </head>
 <body>
+    <header>
+        <div class='app-container'>
+            <div id='title-nickname'>
+            </div>
+        </div>
+    </header> 
+
+    <!--________________________________________________________________________________-->
+
     <section>
         <div class='app-container'>
             <div id='main-container'>
-                <div id='dialogs' class='left-float'>
+                <div id='dialogs'>
                     <div>
-                        DIALOGS:
+                        Dialogs
                     </div>                        
                     <ul id='collocutors'>
                     </ul>    
@@ -20,33 +31,54 @@
 
                     </div>
                 </div>
-                <div id='tracker' >
+                <div id='track-box' >
+                    <div id='tracker'>                    
+                    </div>
+                    <div id='typing-detector'>
+                    </div>                    
                 </div>
+                <div id='message-bar'>
+                    <textarea id='message' rows='4'>
+                    </textarea>
+                </div>                
                 <div id='online-box' class='right-float'>
                     <div>
-                        USER ONLINE:
+                        Online users
                     </div>    
                     <ul id='online-users'>
                     </ul>            
-                </div>    
+                </div>
+                <div id='send-box'>
+                    <button id='send-button' class='clickable'>
+                        Send
+                    </button>
+                </div>
             </div>    
-            <div id='typing-detector'>
-            </div>
-            <div id='message-bar'>
-                <textarea id='message' rows='10' cols='50'>
-                </textarea>
-                <br>
-                <button id='send-button' class='clickable'>
-                    Send
-                </button>
-            </div>
-            <button id='connect-button' class='clickable'>
-                connect
-            </button>
-            <br>
-            <input id='user' type='text'>            
         </div>
     </section>
+
+    <!--________________________________________________________________________________-->    
+
+    <div id='login-container'>
+        <div id='login-form'>
+            <label for='nickname'>Nickname</label><span>*</span>
+            <input id='nickname' type='text' placeholder='Input your nickname'>
+            <label for='password'>Password</label><span>*</span>
+            <input id='password' type='text' placeholder='Input your password'>
+            <button id='login-button' class='clickable' >Login</button>
+        </div>
+    </div>
+
+    <div id='message-box'>
+        <div id='close-message' class='clickable' >
+            x
+        </div>
+        <div id='message-content'>
+        </div>
+    </div>
+    
+    <!--________________________________________________________________________________-->
+
     <script src='src/jquery.js'></script>
     <script src='socket.io/socket.io.js'></script>
     <script src='src/client-classes.js'></script>    

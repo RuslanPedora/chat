@@ -1,14 +1,23 @@
 * {
     margin: 0;
 }
-div {
-    border: 1px solid blue;
+body {
+	background-image: url( 'images/body-image.png' );
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: Verdana, Geneva, sans-serif;
 }
 .cross {
     float: right;
     font-weight: bold;
-    background-color: red;
+    background-color: rgb( 124, 217, 250 );
+    transform: box-shadow .5s;
+    border-radius: 2px;
+    padding: 0 5px 3px 5px;
 }
+.cross:hover {
+    box-shadow: 0 0 2px 2px white;
+}    
 .clickable {
     cursor: pointer;
 }
@@ -23,52 +32,238 @@ div {
     max-width: 1200px;
     margin: 0 auto;
 }
+#title-nickname {
+    display: flex;
+    justify-content: center;
+    align-items: center;            
+    background: rgb( 38, 95, 114 );
+    color: white;
+    height: 30px;
+    font-size: 18px;
+    padding: 10px;
+}
 #main-container {
     display: flex;
-    height: 70vh;    
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: calc( 100vh - 50px );    
 }
 #dialogs {
     overflow: auto;
-    width: 100px;
+    width: 200px;
     height: 100%;
-    background-color: grey;
+    background-color: rgb( 84, 177, 210 );
+    color: white;
+    font-weight: bold;
+    overflow: auto;
+    text-align: center;
+    padding: 10px 0;
 }
 #collocutors {
     list-style: none;
-    padding: 0;
+    padding: 0;  
+    text-align: left;  
+    margin-top: 10px;
+}
+#collocutors li {
+    color: white;
+    font-weight: normal;
+    padding: 10px 10px;
+    font-size: 18px;
 }
 #collocutors li:hover {
     cursor: pointer;
+    background-color: rgb( 47, 154, 192 );
 }    
 #collocutors li span:hover {
     cursor: pointer;
 }    
+.unread-dialog {
+    animation: unread 2s infinite;
+}
+@keyframes unread{
+    0%   { background-color: rgb( 84, 177, 210 ); }
+    50%  { background-color: rgb( 149, 242, 255 ); }
+    100% { background-color: rgb( 84, 177, 210 ); }
+}
+#track-box {
+    width: calc( 100% - 350px ); 
+    height: calc( 100% - 100px );       
+    background-color: rgb( 233, 242, 246 );    
+}
 #tracker {
-    border: 1px solid black;
-    height: 100%;
-    width: calc( 100% - 200px );    
-    background-color: cyan;
+    height: calc( 100% - 35px );
     overflow: auto;
 }
+#typing-detector {
+    height: 35px;
+    background: rgb( 233, 242, 255 );
+    color: grey;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.message-line {
+    background-color: white;
+    margin: 15px auto;
+    width: 95%;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.message-line:nth-child(2n) {
+    background-color: rgb( 149, 242, 255 );
+}    
+.message-line>div:first-child {
+    margin-bottom: 20px;
+}    
+.message-line span {
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+}    
 #online-box {
     overflow: auto;
-    width: 100px;
-    height: 100%;
-    background: yellow;
+    width: 150px;
+    height: calc( 100% - 100px );
+    background: rgb( 84, 177, 210 );
+    overflow: auto;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
 }
 #online-users {
     list-style: none;
     padding: 0;
+    text-align: left;
+    margin-top: 10px;
 }
 #online-users li {
     cursor: pointer;    
+    color: white;
+    font-weight: normal;
+    padding: 10px 10px;
+    font-size: 18px;
+    
 }
 #online-users li:hover {
-    background-color: green;
+    background-color: rgb( 47, 154, 192 );
 }    
 #typing-detector {
     height: 30px;
 }
 #message-bar {
-    border: 1px solid black;
+    width: calc( 100% - 350px );
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;        
+    background: rgb( 38, 95, 114 );
+    overflow: auto;
+}
+#message-bar textarea {
+    width: 95.5%;
+    font-size: 15px;
+}    
+#send-box {
+    background: rgb( 38, 95, 114 );
+    width: 150px;
+    height: 100px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;            
+}
+#send-box button {
+	transition: color .5s, background-color .5s;    
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    background-color: rgb( 124, 217, 250 );
+    border: none;
+    transition: box-shadow .5s;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    padding: 26px 40px;    
+}    
+#send-box button:hover {
+    box-shadow: 0 0 3px 3px rgb( 233, 242, 246 );
+}
+#login-container {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	overflow: auto;
+    background-color:rgba( 255, 255, 255, .4 );
+}
+#login-form {
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0 0 15px 5px rgb( 50, 50, 50 );
+    padding: 15px;
+    background-color: rgb( 84, 177, 210 );
+    border-radius: 5px;
+}
+#login-form * {
+	width: calc( 100% - 20px );
+	margin: 5px 10px;    
+}
+#login-form label {
+    font-weight: bold;
+    font-size: 18px;    
+    color: white;
+}    
+#login-form span {
+    margin-left: -5px;
+}    
+#login-form input {
+    box-sizing: border-box;
+	padding: 5px;
+	outline: none;
+    font-size: 15px;
+}
+#login-form button {
+	transition: color .5s, background-color .5s;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    width: 50%;
+    margin-left: 25%; 
+    margin-top: 20px;
+    padding: 10px 0;
+    color: white;
+    background-color: rgb( 124, 217, 250 );
+    border: none;
+    transition: box-shadow .5s;
+    font-family: Verdana, Geneva, sans-serif;
+}
+#login-form button:hover {
+    box-shadow: 0 0 3px 3px rgb( 233, 242, 246 );
+}    
+#message-box {    
+    width: 90%;
+    max-width: 350px;
+	position: fixed;
+    top: 50%;
+    left: calc( 50% - 175px );    
+	text-align: center;
+    z-index: 10;
+    display: none;
+    padding: 15px;
+    background: rgb( 38, 95, 114 );
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#close-message {
+	position: absolute;
+	top: 0;
+	right: 5px;
+    font-weight: bold;
 }
