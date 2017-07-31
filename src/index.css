@@ -41,12 +41,16 @@ body {
     height: 30px;
     font-size: 18px;
     padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 #main-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     height: calc( 100vh - 50px );    
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #dialogs {
     overflow: auto;
@@ -58,6 +62,7 @@ body {
     overflow: auto;
     text-align: center;
     padding: 10px 0;
+    border-bottom-left-radius: 10px;
 }
 #collocutors {
     list-style: none;
@@ -173,6 +178,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;            
+    border-bottom-right-radius: 10px;
 }
 #send-box button {
 	transition: color .5s, background-color .5s;    
